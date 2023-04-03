@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import './css/main.css'
+//비주얼메뉴 헤더
+import Goods from './page/Goods.jsx'
+import Menu from './page/Menu.jsx'
+import Visual from './page/Visual.jsx'
+import Detail from './page/Detail.jsx'
+import { Routes, Route, Link,useParams } from 'react-router-dom'
+import { useState,useEffect } from 'react';
+import axios from 'axios'
 function App() {
+  let [goods,setGoods]=useState([]);
+  let {id}=useParams()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Menu/>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Visual/>
+          <section style={{width:'80%',margin:'auto'}}> 
+            <Goods goods={goods} setGoods={setGoods}/>
+          </section>
+          </>
+        }/>
+        <Route path="/detail/:id" goods={goods} setGoods={setGoods}/>
+      </Routes>
+    </>
   );
 }
 

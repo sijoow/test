@@ -1,0 +1,24 @@
+.gnb_wrapper{}
+.logo{float:left;padding-left:20px;margin-top:5px;}
+.list_cate{max-width:800px;}
+.list_cate li{
+  cursor:pointer;
+  float:left;
+  height:60px;
+  line-height:60px;
+  font-weight:700;
+  padding-left:15px;
+  padding-right:15px;
+  position:relative;
+}
+.list_cate li:hover > a,.list_cate li.on > a {color: #00bdd4}
+.list_cate li:hover > a:before,.list_cate li.on > a:before {
+    position: absolute;
+    bottom: 5px;
+    left:0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #00bdd4
+}
